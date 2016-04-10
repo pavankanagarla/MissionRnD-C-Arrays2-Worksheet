@@ -76,6 +76,5 @@ namespace spec
 			struct transaction expected1[6] = { { 40, "09-10-2003", "Fourth" }, { 40, "09-10-2003", "Fourth" }, { 50, "19-10-2003", "Fifth" }, { 60, "19-10-2004", "Sixth" }, { 60, "19-10-2004", "Sixth" }, { 80, "03-03-2005", "Eigth" } };
 			Assert::IsTrue(compare(result1, expected1, 6), L"Different arrays case failed.", LINE_INFO());
 		}
-
 	};
 }
