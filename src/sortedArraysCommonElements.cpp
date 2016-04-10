@@ -23,7 +23,31 @@ struct transaction {
 	char date[11];
 	char description[20];
 };
+int compare(transaction Y, transaction Z){
+	int i;
+	for (i = 0; i < 10; i++){
+		if (Y.date[i] != Z.date[i])
+			return 0;
+	}
+	return 1;
+}
 
 struct transaction * sortedArraysCommonElements(struct transaction *A, int ALen, struct transaction *B, int BLen) {
-	return NULL;
+	struct transaction *result = (struct transaction *) malloc(ALen * sizeof(struct transaction));
+	int counter = -1;
+	int i;
+	int j;
+	if (A == NULL || ALen <= 0 || B == NULL || BLen <= 0)
+		return NULL;
+	for (i = 0; i < ALen; i++){
+		for (j = 0; j < BLen; j++){
+			if (compare(A[i], B[j])){
+				result[++counter] = A[i];
+				break;
+			}
+		}
+	}
+	if (counter == -1)
+		return NULL;
+	return result;
 }
